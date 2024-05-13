@@ -10,7 +10,7 @@ process.argv.forEach((val,index) => {
   }
 });
 
-
+// creating server
 const server = net.createServer({keepAlive:true},(socket) => {
   socket.on('close',() => {
       socket.end();
@@ -24,6 +24,7 @@ const server = net.createServer({keepAlive:true},(socket) => {
   })
 
 
+  // parsing the urls
   function parseRequest(httpRequest) {
     const lines = httpRequest.split('\r\n')
     const line = lines[0]
