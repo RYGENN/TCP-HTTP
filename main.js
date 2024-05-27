@@ -44,7 +44,8 @@ const server = net.createServer({keepAlive:true},(socket) => {
             const value = userAgentHeader.split(':')[1].trim()
             return formatOkResponse(value, 'text/plain')
         }
-    }
+    }  
+    // file access
     if (urlPath.startsWith('/file')) {
         const fileName = urlPath.split('/').filter(Boolean)[1]
         const filePath = path.join(DIRECTORY, fileName)
