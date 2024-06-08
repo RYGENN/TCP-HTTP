@@ -57,7 +57,6 @@ const server = net.createServer({keepAlive:true},(socket) => {
           const fileContents = lines[lines.length - 1]
           return uploadFile(filePath, fileContents)
       }
-
     }
     return `HTTP/1.1 404 Not Found\r\n\r\n`;
 }
@@ -73,6 +72,7 @@ function createFileResponse(filePath) {
   
   return `HTTP/1.1 404 Not Found\r\n\r\n`
 }
+  // upload file in filepath
 function uploadFile(filePath, fileContents) {
   try {
       fs.writeFileSync(filePath, fileContents)
